@@ -3,8 +3,8 @@ package main
 import (
 	"fmt"
 
-	"github.com/harshcommits/go-ds/concurrency"
-	"github.com/harshcommits/go-ds/ds"
+	"github.com/harshcommits/go-prep/concurrency"
+	"github.com/harshcommits/go-prep/ds"
 )
 
 func main() {
@@ -26,5 +26,6 @@ func main() {
 	fmt.Println(linkedlist.GetValues())
 
 	concurrency.RunWaitGroup()
+	concurrency.SelectFunc()
 
 }
