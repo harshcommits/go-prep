@@ -1,11 +1,27 @@
 package main
 
 import (
-	"github.com/harshcommits/go-prep/concurrency"
+	"fmt"
+
+	"github.com/harshcommits/go-ds/ds"
 )
 
 func main() {
-	// concurrency.DirectGoroutine()
-	concurrency.RunWaitGroup()
-	concurrency.SyncMutexFunc()
+	fmt.Println("This is for running the data structures")
+
+	stack := ds.Stack{}
+	stack_values := []int{1, 2, 4, 5, 6, 9}
+
+	for _, value := range stack_values {
+		stack.Push(value)
+	}
+
+	linkedlist := ds.LinkedList{}
+	linkedlist.Add(10)
+	linkedlist.Add(20)
+	linkedlist.Add(30)
+
+	fmt.Println(linkedlist.Length())
+	fmt.Println(linkedlist.GetValues())
+
 }
