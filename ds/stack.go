@@ -1,21 +1,21 @@
 package ds
 
 type Stack struct {
-	items []int
+	Items []string
 }
 
-func (s *Stack) Push(item int) {
-	s.items = append(s.items, item)
+func (s *Stack) Push(item string) {
+	s.Items = append(s.Items, item)
 }
 
-func (s *Stack) Pop() int {
-	if len(s.items) == 0 {
-		return -1
+func (s *Stack) Pop() string {
+	if len(s.Items) == 0 {
+		return "-1"
 	}
 
-	lastIndex := len(s.items) - 1
-	popped := s.items[lastIndex]
-	s.items = s.items[:lastIndex]
+	lastIndex := len(s.Items) - 1
+	popped := s.Items[lastIndex]
+	s.Items = s.Items[:lastIndex]
 
 	return popped
 }

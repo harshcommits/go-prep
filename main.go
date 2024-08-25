@@ -3,29 +3,49 @@ package main
 import (
 	"fmt"
 
-	"github.com/harshcommits/go-prep/concurrency"
-	"github.com/harshcommits/go-prep/ds"
+	"github.com/harshcommits/go-prep/algorithms"
 )
 
 func main() {
 	fmt.Println("This is for running the data structures")
 
-	stack := ds.Stack{}
-	stack_values := []int{1, 2, 4, 5, 6, 9}
+	// stack := ds.Stack{}
+	// items := []string{'A', 'B', 'C', 'D', 'E'}
 
-	for _, value := range stack_values {
-		stack.Push(value)
-	}
+	// for _, value := range items {
+	// 	stack.Push(value)
+	// }
 
-	linkedlist := ds.LinkedList{}
-	linkedlist.Add(10)
-	linkedlist.Add(20)
-	linkedlist.Add(30)
+	// for len(stack.Items) > 0 {
+	// 	fmt.Printf("%c ", stack.Pop())
+	// }
 
-	fmt.Println(linkedlist.Length())
-	fmt.Println(linkedlist.GetValues())
+	// linkedlist := ds.LinkedList{}
+	// linkedlist.Add(10)
+	// linkedlist.Add(20)
+	// linkedlist.Add(30)
 
-	concurrency.RunWaitGroup()
-	concurrency.SelectFunc()
+	// fmt.Println(linkedlist.Length())
+	// fmt.Println(linkedlist.GetValues())
+
+	// concurrency.RunWaitGroup()
+	// concurrency.SelectFunc()
+
+	// graph traversal
+	graph := make(map[string][]string)
+	graph["A"] = []string{"B", "C"}
+	graph["B"] = []string{"A", "D", "E"}
+	graph["C"] = []string{"A", "F"}
+	graph["D"] = []string{"B"}
+	graph["E"] = []string{"B", "F"}
+	graph["F"] = []string{"C", "E"}
+
+	// values := algorithms.BFS(graph, 'F')
+	// for _, char := range values {
+	// 	fmt.Printf("%c ", char)
+	// }
+
+	moreValues := algorithms.DFS(graph, "F", nil)
+	fmt.Println(algorithms.Traversed(moreValues))
 
 }
