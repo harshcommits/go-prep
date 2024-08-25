@@ -8,7 +8,7 @@ import (
 // DFS done via stack implementation
 func DFS(graph map[string][]string, start string) []string {
 
-	stack := ds.Stack{}
+	stack := ds.Stack[string]{}
 	stack.Push(start)
 
 	visited := []string{}

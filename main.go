@@ -2,37 +2,40 @@ package main
 
 import (
 	"fmt"
+	"math"
 
 	"github.com/harshcommits/go-prep/algorithms"
+	"github.com/harshcommits/go-prep/concurrency"
+	"github.com/harshcommits/go-prep/ds"
 )
 
 func main() {
 	fmt.Println("This is for running the data structures")
 
-	// stack := ds.Stack{}
-	// items := []string{'A', 'B', 'C', 'D', 'E'}
+	stack := ds.Stack[string]{}
+	items := []string{"A", "B", "C", "D", "E"}
 
-	// for _, value := range items {
-	// 	stack.Push(value)
-	// }
+	for _, value := range items {
+		stack.Push(value)
+	}
 
-	// for len(stack.Items) > 0 {
-	// 	fmt.Printf("%c ", stack.Pop())
-	// }
+	for len(stack.Items) > 0 {
+		fmt.Println(stack.Pop())
+	}
 
-	// linkedlist := ds.LinkedList{}
-	// linkedlist.Add(10)
-	// linkedlist.Add(20)
-	// linkedlist.Add(30)
+	linkedlist := ds.LinkedList{}
+	linkedlist.Add(10)
+	linkedlist.Add(20)
+	linkedlist.Add(30)
 
-	// fmt.Println(linkedlist.Length())
-	// fmt.Println(linkedlist.GetValues())
+	fmt.Println(linkedlist.Length())
+	fmt.Println(linkedlist.GetValues())
 
-	// concurrency.RunWaitGroup()
-	// concurrency.SelectFunc()
+	concurrency.RunWaitGroup()
+	concurrency.SelectFunc()
 
-	// check_operator := math.Floor(float64((10 + 3) / 2))
-	// fmt.Println(check_operator)
+	check_operator := math.Floor(float64((10 + 3) / 2))
+	fmt.Println(check_operator)
 
 	values := []int{1, 2, 3, 4}
 	valuesChar := []string{"A", "B", "C", "D"}
