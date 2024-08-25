@@ -5,14 +5,12 @@ import (
 	"golang.org/x/exp/slices"
 )
 
-func DFS(graph map[string][]string, start string, visited []string) []string {
+func DFS(graph map[string][]string, start string) []string {
 
 	stack := ds.Stack{}
 	stack.Push(start)
 
-	if visited != nil {
-		visited = []string{}
-	}
+	visited := []string{}
 
 	for len(stack.Items) > 0 {
 		current := stack.Pop()
@@ -22,8 +20,8 @@ func DFS(graph map[string][]string, start string, visited []string) []string {
 
 		for _, neighbour := range graph[current] {
 			if !slices.Contains(visited, neighbour) {
-				stack.Push(neighbour)
 				visited = append(visited, current)
+				stack.Push(neighbour)
 			}
 		}
 	}

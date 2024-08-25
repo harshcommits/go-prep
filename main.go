@@ -40,12 +40,12 @@ func main() {
 	graph["E"] = []string{"B", "F"}
 	graph["F"] = []string{"C", "E"}
 
-	// values := algorithms.BFS(graph, 'F')
-	// for _, char := range values {
-	// 	fmt.Printf("%c ", char)
-	// }
+	// DFS traversal
+	moreValues := algorithms.DFS(graph, "F")
+	fmt.Println("DFS traversal: ", algorithms.Traversed(moreValues))
 
-	moreValues := algorithms.DFS(graph, "F", nil)
-	fmt.Println(algorithms.Traversed(moreValues))
+	// BFS traversal
+	BFSValues := algorithms.BFS(graph, "F")
+	fmt.Println("BFS traversal", algorithms.Traversed(BFSValues))
 
 }

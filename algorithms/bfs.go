@@ -7,31 +7,37 @@ import (
 
 func BFS(graph map[string][]string, start string) []string {
 
-	stack := ds.Stack{}
-	stack.Push(start)
+	queue := ds.Queue[string]{}
+	queue.Enqueue(start)
 
-	var visited []string
-	var traversed []string
+	visited := []string{}
 
-	for len(stack.Items) > 0 {
-		current := stack.Pop()
-		visited = append(visited, current)
+	for len(queue.Entries) > 0 {
+		current := queue.Dequeue()
+		if !slices.Contains(visited, current) {
+			visited = append(visited, current)
+		}
 
 		for _, neighbour := range graph[current] {
 			if !slices.Contains(visited, neighbour) {
-				stack.Push(neighbour)
-				visited = append(visited, neighbour)
+				queue.Enqueue(neighbour)
+				visited = append(visited, current)
 			}
 		}
 	}
 
-	// remove duplicate values
-	for _, value := range visited {
-		if !slices.Contains(traversed, value) {
-			traversed = append(traversed, value)
-		}
-	}
+	// if visited == nil {
+	// 	visited = []string{}
+	// }
 
-	return traversed
+	// visited = append(visited, start)
+
+	// for _, neighbour := range graph[start] {
+	// 	if !slices.Contains(visited, neighbour) {
+	// 		DFS(graph, neighbour, visited)
+	// 	}
+	// }
+
+	return visited
 
 }
