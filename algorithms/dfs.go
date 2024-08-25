@@ -5,6 +5,7 @@ import (
 	"golang.org/x/exp/slices"
 )
 
+// DFS done via stack implementation
 func DFS(graph map[string][]string, start string) []string {
 
 	stack := ds.Stack{}
@@ -26,17 +27,24 @@ func DFS(graph map[string][]string, start string) []string {
 		}
 	}
 
-	// if visited == nil {
-	// 	visited = []string{}
-	// }
+	return visited
 
-	// visited = append(visited, start)
+}
 
-	// for _, neighbour := range graph[start] {
-	// 	if !slices.Contains(visited, neighbour) {
-	// 		DFS(graph, neighbour, visited)
-	// 	}
-	// }
+// DFS done recursively, since recursion uses the call stack
+func DFSRecursive(graph map[string][]string, start string, visited []string) []string {
+
+	if visited == nil {
+		visited = []string{}
+	}
+
+	visited = append(visited, start)
+
+	for _, neighbour := range graph[start] {
+		if !slices.Contains(visited, neighbour) {
+			DFSRecursive(graph, neighbour, visited)
+		}
+	}
 
 	return visited
 

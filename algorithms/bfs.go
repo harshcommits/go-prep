@@ -26,18 +26,6 @@ func BFS(graph map[string][]string, start string) []string {
 		}
 	}
 
-	// if visited == nil {
-	// 	visited = []string{}
-	// }
-
-	// visited = append(visited, start)
-
-	// for _, neighbour := range graph[start] {
-	// 	if !slices.Contains(visited, neighbour) {
-	// 		DFS(graph, neighbour, visited)
-	// 	}
-	// }
-
 	return visited
 
 }

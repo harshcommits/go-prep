@@ -41,11 +41,15 @@ func main() {
 	graph["F"] = []string{"C", "E"}
 
 	// DFS traversal
-	moreValues := algorithms.DFS(graph, "F")
-	fmt.Println("DFS traversal: ", algorithms.Traversed(moreValues))
+	DFSValues := algorithms.DFS(graph, "F")
+	fmt.Println("DFS traversal: ", algorithms.Traversed(DFSValues))
+
+	// DFS recursively
+	DFSRecursiveValues := algorithms.DFS(graph, "F")
+	fmt.Println("DFS traversal done recursively: ", algorithms.Traversed(DFSRecursiveValues))
 
 	// BFS traversal
 	BFSValues := algorithms.BFS(graph, "F")
-	fmt.Println("BFS traversal", algorithms.Traversed(BFSValues))
+	fmt.Println("BFS traversal: ", algorithms.Traversed(BFSValues))
 
 }
