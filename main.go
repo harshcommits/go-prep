@@ -31,6 +31,15 @@ func main() {
 	// concurrency.RunWaitGroup()
 	// concurrency.SelectFunc()
 
+	// check_operator := math.Floor(float64((10 + 3) / 2))
+	// fmt.Println(check_operator)
+
+	values := []int{1, 2, 3, 4}
+	valuesChar := []string{"A", "B", "C", "D"}
+
+	fmt.Println(algorithms.BinarySearch(values, 3))
+	fmt.Println(algorithms.BinarySearch(valuesChar, "E"))
+
 	// graph traversal
 	graph := make(map[string][]string)
 	graph["A"] = []string{"B", "C"}
