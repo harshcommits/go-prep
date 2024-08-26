@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"math"
 
-	"github.com/harshcommits/go-prep/algorithms"
+	algorithms "github.com/harshcommits/go-prep/algorithms"
 	"github.com/harshcommits/go-prep/concurrency"
 	"github.com/harshcommits/go-prep/ds"
 )
@@ -63,5 +63,8 @@ func main() {
 	// BFS traversal
 	BFSValues := algorithms.BFS(graph, "F")
 	fmt.Println("BFS traversal: ", algorithms.Traversed(BFSValues))
+
+	arr := []int{64, 34, 5, 12, 22, 11, 90, 25}
+	fmt.Println(algorithms.BubbleSort(arr))
 
 }
