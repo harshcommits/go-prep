@@ -5,26 +5,25 @@ import (
 	"time"
 )
 
-var hellos = []string{"Hello", "Ciao", "Salut", "Namaste"}
-var goodbyes = []string{"Goodbye", "Arrivederci", "Adios", "Namastey"}
+var hellos = []string{"Hello!", "Namaste", "Ciao"}
+var goodbyes = []string{"Goodbye!", "Alvida!", "Arrivederci!"}
 
-func SelectFunc() {
+func ChannelSelect() {
 
-	ch1 := make(chan string, 1)
+	ch := make(chan string, 1)
 	ch2 := make(chan string, 1)
 
-	go greets(hellos, ch1)
-	go greets(goodbyes, ch2)
+	go greetSelect(hellos, ch)
+	go greetSelect(goodbyes, ch2)
 
 	time.Sleep(1 * time.Second)
 	fmt.Println("Main ready:")
 
 	for {
 		select {
-		case gr, ok := <-ch1:
-			// to avoid infinite loop, sets the channel to nil if it is closed.
+		case gr, ok := <-ch:
 			if !ok {
-				ch1 = nil
+				ch = nil
 				break
 			}
 			printGreeting(gr)
@@ -37,21 +36,21 @@ func SelectFunc() {
 		default:
 			return
 		}
-
 	}
-
 }
 
-func greets(greetings []string, ch chan<- string) {
-	fmt.Println("Greeter ready")
+func greetSelect(greetings []string, ch chan<- string) { // make the channel send-only for this function by putting <- after the chan keyword. No symbol means bi-directional
+	fmt.Printf("Greeter ready! \n Greeter ready to send greeting...\n")
+
 	for _, g := range greetings {
 		ch <- g
 	}
-	close(ch) // close channel to avoid goroutine locks
+	close(ch)
+
 	fmt.Println("Greeter completed")
 }
 
 func printGreeting(greeting string) {
 	time.Sleep(500 * time.Millisecond)
-	fmt.Println("Greeting received:", greeting)
+	fmt.Println("Greeting received!", greeting)
 }
