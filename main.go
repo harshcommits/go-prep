@@ -5,7 +5,6 @@ import (
 	"math"
 
 	algorithms "github.com/harshcommits/go-prep/algorithms"
-	"github.com/harshcommits/go-prep/concurrency"
 	"github.com/harshcommits/go-prep/ds"
 )
 
@@ -31,8 +30,8 @@ func main() {
 	fmt.Println(linkedlist.Length())
 	fmt.Println(linkedlist.GetValues())
 
-	concurrency.RunWaitGroup()
-	concurrency.SelectFunc()
+	// concurrency.RunWaitGroup()
+	// concurrency.SelectFunc()
 
 	check_operator := math.Floor(float64((10 + 3) / 2))
 	fmt.Println(check_operator)
