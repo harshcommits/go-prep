@@ -6,6 +6,7 @@ import (
 
 	algorithms "github.com/harshcommits/go-prep/algorithms"
 	"github.com/harshcommits/go-prep/ds"
+	"github.com/harshcommits/go-prep/misc"
 )
 
 func main() {
@@ -65,5 +66,7 @@ func main() {
 
 	arr := []int{64, 34, 5, 12, 22, 11, 90, 25}
 	fmt.Println(algorithms.BubbleSort(arr))
+
+	misc.DecodedJsonFinal()
 
 }
