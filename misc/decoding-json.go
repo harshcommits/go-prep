@@ -23,7 +23,7 @@ func DecodedJsonFinal() {
 
 	// Option 2: Using generics (1.18+)
 	var birds []Bird
-	if err := DecodeJSON[[]Bird](jsonValue, &birds); err != nil {
+	if err := DecodeJSON(jsonValue, &birds); err != nil {
 		log.Fatal(err)
 	}
 	fmt.Println("\nDecoded with generics:", birds)
