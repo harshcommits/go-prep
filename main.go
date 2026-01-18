@@ -69,4 +69,7 @@ func main() {
 	result := misc.TwoSum([]int{3, 2, 4}, 6)
 	fmt.Println(result)
 
+	merged := misc.MergeStrings("ab", "pqrs")
+	fmt.Println(merged)
+
 }
