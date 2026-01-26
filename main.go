@@ -3,73 +3,39 @@ package main
 import (
 	"fmt"
 
+	"github.com/harshcommits/go-prep/ds"
 	"github.com/harshcommits/go-prep/misc"
 )
 
 func main() {
-	// fmt.Println("This is for running the data structures")
-
-	// stack := ds.Stack[string]{}
-	// items := []string{"A", "B", "C", "D", "E"}
-
-	// for _, value := range items {
-	// 	stack.Push(value)
-	// }
-
-	// for len(stack.Items) > 0 {
-	// 	fmt.Println(stack.Pop())
-	// }
-
-	// linkedlist := ds.LinkedList{}
-	// linkedlist.Add(10)
-	// linkedlist.Add(20)
-	// linkedlist.Add(30)
-
-	// fmt.Println(linkedlist.Length())
-	// fmt.Println(linkedlist.GetValues())
-
-	// // concurrency.RunWaitGroup()
-	// // concurrency.SelectFunc()
-
-	// check_operator := math.Floor(float64((10 + 3) / 2))
-	// fmt.Println(check_operator)
-
-	// values := []int{1, 2, 3, 4}
-	// valuesChar := []string{"A", "B", "C", "D"}
-
-	// fmt.Println(algorithms.BinarySearch(values, 3))
-	// fmt.Println(algorithms.BinarySearch(valuesChar, "E"))
-
-	// // graph traversal
-	// graph := make(map[string][]string)
-	// graph["A"] = []string{"B", "C"}
-	// graph["B"] = []string{"A", "D", "E"}
-	// graph["C"] = []string{"A", "F"}
-	// graph["D"] = []string{"B"}
-	// graph["E"] = []string{"B", "F"}
-	// graph["F"] = []string{"C", "E"}
-
-	// // DFS traversal
-	// DFSValues := algorithms.DFS(graph, "F")
-	// fmt.Println("DFS traversal: ", algorithms.Traversed(DFSValues))
-
-	// // DFS recursively
-	// DFSRecursiveValues := algorithms.DFS(graph, "F")
-	// fmt.Println("DFS traversal done recursively: ", algorithms.Traversed(DFSRecursiveValues))
-
-	// // BFS traversal
-	// BFSValues := algorithms.BFS(graph, "F")
-	// fmt.Println("BFS traversal: ", algorithms.Traversed(BFSValues))
-
-	// arr := []int{64, 34, 5, 12, 22, 11, 90, 25}
-	// fmt.Println(algorithms.BubbleSort(arr))
-
-	// misc.DecodedJsonFinal()
 
 	result := misc.TwoSum([]int{3, 2, 4}, 6)
 	fmt.Println(result)
 
 	merged := misc.MergeStrings("ab", "pqrs")
 	fmt.Println(merged)
+
+	graph := ds.NewGraph()
+	graph.AddUndirectedEdge(1, 2, 10)
+	graph.AddUndirectedEdge(1, 3, 15)
+	graph.AddUndirectedEdge(2, 4, 12)
+	graph.AddUndirectedEdge(3, 4, 5)
+
+	for v, vertex := range graph.Vertices {
+		fmt.Printf("Vertex %d:\n", v)
+		for n, edge := range vertex.Neighbours {
+			fmt.Printf("  connects to %d with weight %d\n", n, edge.Weight)
+		}
+	}
+
+	tree := ds.NewTree(10)
+	tree.Insert(5)
+	tree.Insert(15)
+	tree.Insert(3)
+	tree.Insert(7)
+	tree.Insert(12)
+	tree.Insert(18)
+
+	fmt.Printf("Tree Depth: %d\n", tree.GetHeight())
 
 }
