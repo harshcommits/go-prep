@@ -73,6 +73,16 @@ func (n *TreeNode) GetValue() string {
 	return strconv.Itoa(n.value)
 }
 
+// GetLeft returns the left child of the node
+func (n *TreeNode) GetLeft() *TreeNode {
+	return n.left
+}
+
+// GetRight returns the right child of the node
+func (n *TreeNode) GetRight() *TreeNode {
+	return n.right
+}
+
 // GetTreeValues returns in-order traversal as a string
 func (t *Tree) GetTreeValues() string {
 	sb := strings.Builder{}

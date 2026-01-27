@@ -38,4 +38,13 @@ func main() {
 
 	fmt.Printf("Tree Depth: %d\n", tree.GetHeight())
 
+	binarySearch := misc.BinarySearch(3, []int{1, 3, 4, 5})
+	fmt.Printf("The value is %d\n", binarySearch)
+
+	if misc.ValidPalindrome("naman") {
+		fmt.Println("valid")
+	} else {
+		fmt.Println("invalid")
+	}
+
 }
