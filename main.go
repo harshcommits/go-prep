@@ -47,4 +47,13 @@ func main() {
 		fmt.Println("invalid")
 	}
 
+	currentVersion := misc.ReleaseType{Web: misc.Version{Major: 1, Minor: 0, Patch: 0}, Desktop: misc.Version{Major: 1, Minor: 5, Patch: 0}, Agent: misc.Version{Major: 1, Minor: 0, Patch: 4}}
+	commits := []string{
+		"feat(web): Added fixes",
+		"feat(core): Modified base libraries",
+	}
+
+	newerVersion := misc.CalculateNextVersions(currentVersion, commits)
+	fmt.Println(newerVersion)
+
 }
