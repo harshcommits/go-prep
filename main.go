@@ -53,7 +53,7 @@ func main() {
 		"feat(core): Modified base libraries",
 	}
 
-	newerVersion := misc.CalculateNextVersions(currentVersion, commits)
-	fmt.Println(newerVersion)
+	misc.CalculateNextVersions(&currentVersion, commits)
+	fmt.Println(currentVersion)
 
 }

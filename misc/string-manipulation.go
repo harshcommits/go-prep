@@ -16,7 +16,7 @@ type Version struct {
 	Patch int
 }
 
-func CalculateNextVersions(currentVersion ReleaseType, commits []string) ReleaseType {
+func CalculateNextVersions(currentVersion *ReleaseType, commits []string) {
 
 	var releaseType string
 	var platform string
@@ -56,7 +56,5 @@ func CalculateNextVersions(currentVersion ReleaseType, commits []string) Release
 		}
 
 	}
-
-	return currentVersion
 
 }
