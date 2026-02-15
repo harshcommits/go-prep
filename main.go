@@ -16,17 +16,16 @@ func main() {
 	fmt.Println(merged)
 
 	graph := ds.NewGraph()
-	graph.AddUndirectedEdge(1, 2, 10)
-	graph.AddUndirectedEdge(1, 3, 15)
-	graph.AddUndirectedEdge(2, 4, 12)
-	graph.AddUndirectedEdge(3, 4, 5)
+	graph.AddVertex(1)
+	graph.AddVertex(10)
+	graph.AddVertex(20)
 
-	for v, vertex := range graph.Vertices {
-		fmt.Printf("Vertex %d:\n", v)
-		for n, edge := range vertex.Neighbours {
-			fmt.Printf("  connects to %d with weight %d\n", n, edge.Weight)
-		}
-	}
+	// added edges
+	graph.AddEdge(1, 10)
+	graph.AddEdge(10, 20)
+	graph.AddEdge(20, 1)
+	fmt.Println("This is the graph being printed")
+	graph.Print()
 
 	tree := ds.NewTree(10)
 	tree.Insert(5)
@@ -40,8 +39,8 @@ func main() {
 
 	binarySearch := misc.BinarySearch(3, []int{1, 3, 4, 5})
 	fmt.Printf("The value is %d\n", binarySearch)
-
 	if misc.ValidPalindrome("naman") {
+
 		fmt.Println("valid")
 	} else {
 		fmt.Println("invalid")
