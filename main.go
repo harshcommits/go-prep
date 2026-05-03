@@ -15,7 +15,7 @@ func main() {
 	merged := misc.MergeStrings("ab", "pqrs")
 	fmt.Println(merged)
 
-	graph := ds.NewGraph()
+	graph := ds.NewGraph(false) // undirected graph
 	graph.AddVertex(1)
 	graph.AddVertex(10)
 	graph.AddVertex(20)
@@ -40,7 +40,6 @@ func main() {
 	binarySearch := misc.BinarySearch(3, []int{1, 3, 4, 5})
 	fmt.Printf("The value is %d\n", binarySearch)
 	if misc.ValidPalindrome("naman") {
-
 		fmt.Println("valid")
 	} else {
 		fmt.Println("invalid")
