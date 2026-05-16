@@ -1,30 +1,26 @@
 package algorithms
 
 import (
-	"cmp"
 	"fmt"
 )
 
-// using type Ordered since comparison operators don't work on slice, maps and functions; any and comparable restricts those types from use in generics
-func BinarySearch[T cmp.Ordered](values []T, search T) bool {
-	large := len(values) - 1
-	low := 0
+func BinarySearch(num int, nums []int) int {
+	low, high := 0, len(nums)-1
 
-	for low <= large {
-		mid := (large + low) / 2
+	for low <= high {
+		mid := low + (high-low)/2
+		fmt.Printf("Searching for %d, mid index is %d, mid value is %d\n", num, mid, nums[mid])
 
-		if values[mid] == search {
-			return true
-		}
-
-		if values[mid] > search {
-			large = mid - 1
+		if num == nums[mid] {
+			return mid
+		} else if num > nums[mid] {
+			low = mid + 1 // Search right half
 		} else {
-			low = mid + 1
+			high = mid - 1 // Search left half
 		}
 	}
 
-	return false
+	return -1 // Not found
 }
 
 func Iterate[T any](values []T) {
