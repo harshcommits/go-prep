@@ -30,5 +30,4 @@ func Iterate[T any](values []T) {
 	}
 
 	fmt.Println(values[2])
-
 }
