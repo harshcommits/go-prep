@@ -1,15 +1,16 @@
 package algorithms
 
-import (
-	"fmt"
-)
+import "fmt"
 
 func BinarySearch(num int, nums []int) int {
+	if len(nums) == 0 {
+		return -1
+	}
+
 	low, high := 0, len(nums)-1
 
 	for low <= high {
 		mid := low + (high-low)/2
-		fmt.Printf("Searching for %d, mid index is %d, mid value is %d\n", num, mid, nums[mid])
 
 		if num == nums[mid] {
 			return mid
@@ -29,5 +30,7 @@ func Iterate[T any](values []T) {
 		fmt.Println(value)
 	}
 
-	fmt.Println(values[2])
+	if len(values) > 2 {
+		fmt.Println(values[2])
+	}
 }

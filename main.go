@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 
+	"github.com/harshcommits/go-prep/algorithms"
 	"github.com/harshcommits/go-prep/ds"
 	"github.com/harshcommits/go-prep/misc"
 )
@@ -53,5 +54,9 @@ func main() {
 
 	misc.CalculateNextVersions(&currentVersion, commits)
 	fmt.Println(currentVersion)
+
+	// binary search
+	fmt.Println("Checking binary search")
+	fmt.Println(algorithms.BinarySearch(3, []int{1, 2, 3, 4, 5}))
 
 }
